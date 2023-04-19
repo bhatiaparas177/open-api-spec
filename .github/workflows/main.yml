@@ -11,7 +11,7 @@ jobs:
     
 
     steps:
-      - name: Trigger workflow in infrastructure repository
+      - name: Trigger workflow for infrastructure repository
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.INFRA_GITHUB_TOKEN }}
