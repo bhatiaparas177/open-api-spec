@@ -1,0 +1,19 @@
+name: Upload OpenAPI Spec to S3
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+
+    steps:
+      - name: Trigger workflow in infrastructure repository
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.INFRA_GITHUB_TOKEN }}
+          repository: bhatiaparas177/infrastructure
+          event-type: trigger
